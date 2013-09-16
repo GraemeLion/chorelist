@@ -1,0 +1,29 @@
+<div class="page-header">
+	<h1>Chore List</h1>
+  </div>
+
+<div class="hero-unit">
+ 
+
+
+  <table class="table table-condensed">
+
+  <tr>
+  	<th>Chore</th>
+  	<th>Reward</th>
+  	<th>Punishment</th>
+  </tr>
+  <tr ng-repeat="chore in chores" class="ng-class: determineCondition($index);">
+  	<td>{{chore.task}}</td>  
+  	<td>{{chore.reward}}</td>
+  	<td>{{chore.punishment}}</td>
+  	<td><button type="button" class="ng-class: determineButtonCompleted($index);" ng-click="completedTask($index)">Done!</button></td>
+  	<td><button type="button" class="ng-class: determineButtonFailed($index);" ng-click="failedTask($index)">Not Done</button></td>
+  	<td><button type="button" class="btn" ng-click="deleteChore($index)">X</button></td>
+  </tr>
+</table>
+
+<P>Reward Points: <span class="badge">{{rewardPoints}} </span></p>
+<P>Punishment Points: <span class="badge">{{punishmentPoints}}</span> </p>
+	<button type="button" class="btn btn-primary btn-lg pull-right" ng-click="addNewChoreModal()">Add New Chore</button>
+</div>
