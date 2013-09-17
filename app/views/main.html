@@ -3,9 +3,6 @@
   </div>
 
 <div class="hero-unit">
- 
-
-
   <table class="table table-condensed">
 
   <tr>
@@ -18,12 +15,21 @@
   	<td>{{chore.reward}}</td>
   	<td>{{chore.punishment}}</td>
   	<td><button type="button" class="ng-class: determineButtonCompleted($index);" ng-click="completedTask($index)">Done!</button></td>
-  	<td><button type="button" class="ng-class: determineButtonFailed($index);" ng-click="failedTask($index)">Not Done</button></td>
+  	<td><button type="button" class="ng-class: determineButtonFailed($index);" ng-click="failedTask($index)">Failed</button></td>
   	<td><button type="button" class="btn" ng-click="deleteChore($index)">X</button></td>
+  </tr>
+  <tr>
+    <form class="form-inline">
+    <td><input type="text" class="form-control" width="90%" ng-model="chore.task" placeholder="Chore"/> </td>
+    <td><input type="text" class="form-control" width="90%"  ng-model="chore.reward" placeholder="Reward"/> </td>
+    <td><input type="text" class="form-control" width="90%"  ng-model="chore.punishment" placeholder="Punishment"/> </td>
+    <td> <button type="button" class="btn btn-primary" ng-click="addNewChore(chore)">Add</button></td>
+  </form>
   </tr>
 </table>
 
-<P>Reward Points: <span class="badge">{{rewardPoints}} </span></p>
-<P>Punishment Points: <span class="badge">{{punishmentPoints}}</span> </p>
-	<button type="button" class="btn btn-primary btn-lg pull-right" ng-click="addNewChoreModal()">Add New Chore</button>
+<P>Reward Points: <span class="label label-success">{{rewardPoints}}</span>
+Punishment Points: <span class="label label-important">{{punishmentPoints}}</span> </p>
+	
+    
 </div>

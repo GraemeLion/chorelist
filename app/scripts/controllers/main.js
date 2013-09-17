@@ -71,7 +71,7 @@ angular.module('chorelistApp')
     	}
     	else
     	{
-    		return 'btn btn-danger';
+    		return 'btn btn-danger' ;
     	}
 
     };	
@@ -79,6 +79,18 @@ angular.module('chorelistApp')
     $scope.deleteChore = function(index){
     	$scope.chores.splice(index, 1);
 
+    }
+
+    $scope.addNewChore = function(chore){
+        
+        var temp = Object.create(null);
+
+        angular.copy(chore,temp);
+        $scope.chores.push(temp);
+        chore.task = '';
+        chore.reward = '';
+        chore.punishment = '';
+        
     }
 
   });
