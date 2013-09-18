@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('chorelistApp', [])
+angular.module('chorelistApp', ['LocalStorageModule'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

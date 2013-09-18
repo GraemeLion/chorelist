@@ -1,18 +1,29 @@
 'use strict';
 
 angular.module('chorelistApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope,localStorageService) {
     
 
-    $scope.chores = [{task: 'Do Laundry', reward: 'candy', punishment: 'loss of computer time'},
-    {task: 'Do Dishes', reward: 'stay up 30 minutes extra', punishment: 'early bedtime'},
-    {task: 'Take Out Trash', reward: '$5', punishment: 'grounded'},
-    ];
+    //$scope.chores = [{task: 'Do Laundry', reward: 'candy', punishment: 'loss of computer time'},
+   // {task: 'Do Dishes', reward: 'stay up 30 minutes extra', punishment: 'early bedtime'},
+   // {task: 'Take Out Trash', reward: '$5', punishment: 'grounded'},
+   // ];
 
-    $scope.rewardPoints = 0;
-    $scope.punishmentPoints = 0;
+    var choresInStorage = localStorageService.get('chores');
+
+    
+    $scope.chores = choresInStorage || [];
+
+
+    $scope.rewardPoints = localStorageService.get('rp');
+    $scope.punishmentPoints = localStorageService.get('pp');
 
    
+    $scope.$watch(function(){
+        localStorageService.add('chores',$scope.chores);
+        localStorageService.add('pp', $scope.punishmentPoints);
+        localStorageService.add('rp', $scope.rewardPoints);
+    });
 
     $scope.completedTask = function($index){
     	
