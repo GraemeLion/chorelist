@@ -10,7 +10,7 @@ angular.module('chorelistApp')
     ];
 
     $scope.rewardPoints = 0;
-    $scope.punishmentPoints = 15;
+    $scope.punishmentPoints = 0;
 
    
 
